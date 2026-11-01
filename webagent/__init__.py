@@ -1,0 +1,1 @@
+"""Company disclosure collection prototype."""

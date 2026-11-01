@@ -1,0 +1,32 @@
+[project]
+name = "external-research"
+version = "0.1.0"
+description = "Standalone external-research module with a file-based contract"
+requires-python = ">=3.11"
+dependencies = [
+  "openai>=1.99,<3", "pydantic>=2.10,<3", "pypdf>=5,<7",
+  "beautifulsoup4>=4.13,<5", "fastapi>=0.115,<1", "uvicorn>=0.34,<1",
+  "python-dotenv>=1.0,<2", "httpx>=0.28,<1", "python-dateutil>=2.9,<4",
+]
+
+[project.scripts]
+external-research = "external_research.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.package-data]
+external_research = ["static/*"]
+
+[tool.setuptools.packages.find]
+include = ["external_research*"]
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "pytest-asyncio>=0.25,<2", "httpx>=0.28,<1"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+pythonpath = ["."]

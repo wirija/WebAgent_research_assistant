@@ -1,0 +1,26 @@
+[project]
+name = "company-web-agent"
+version = "0.1.0"
+description = "A local, GPT-5 mini powered company disclosure collector"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn>=0.34,<1",
+  "openai>=1.99,<3",
+  "httpx>=0.28,<1",
+  "beautifulsoup4>=4.13,<5",
+  "pydantic>=2.10,<3",
+  "python-dateutil>=2.9,<4",
+  "python-dotenv>=1.0,<2",
+  "playwright>=1.51,<2",
+  "pypdf>=5,<7",
+]
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "pytest-asyncio>=0.25,<2"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+pythonpath = ["."]

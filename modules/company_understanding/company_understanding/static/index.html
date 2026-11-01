@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Module 2 · Company Understanding</title><link rel="stylesheet" href="style.css"><script defer src="app.js"></script></head>
+<body>
+<header><a href="./" class="brand"><span class="mark">02</span><span>Company Understanding<small>Independent research module</small></span></a><button id="settings-button" class="secondary">API settings</button></header>
+<main>
+<section class="intro"><p class="eyebrow">FROM DOCUMENTS TO COMPANY UNDERSTANDING</p><h1>Understand the business.<br><em>Keep the evidence close.</em></h1><p>Build a company profile, identify changes and exposures,<br>and record the questions that still need answers.</p></section>
+<section class="card setup"><form id="start-form">
+<label for="source-folder">Collected document folder</label><input id="source-folder" required placeholder="/Users/you/Documents/collection-folder" autocomplete="off"><p class="hint">Choose a local folder containing catalogue.json and the saved documents. No collector server is required.</p>
+<div class="fields"><div><label for="year-end">Financial year-end</label><input id="year-end" type="date" required></div><div><label for="cutoff">Information cutoff</label><input id="cutoff" type="date" required></div></div>
+<p class="hint">Later publications are excluded. Sources with unknown publication dates remain clearly flagged.</p>
+<div class="actions"><button id="start-button" class="primary" type="submit">Understand company ↗</button><button id="demo-button" type="button" class="text-button">Try a synthetic sample →</button></div>
+<p class="hint"><span id="model">gpt-5-mini</span> · Live runs send extracted document text to OpenAI and use your API credits. Sample runs use no API calls.</p>
+</form></section>
+<p id="error" class="error" role="alert" hidden></p>
+<section id="job" hidden>
+<div class="section-head"><div><p class="eyebrow" id="job-label">COMPANY UNDERSTANDING</p><h2 id="company"></h2><p class="hint" id="dates"></p></div><div class="actions"><span id="status" class="badge"></span><button id="stop" class="secondary" hidden>Stop</button></div></div>
+<p id="demo-notice" class="notice" hidden>Synthetic sample only. The company, documents and model responses in this demonstration are fictional.</p>
+<div class="metrics"><div><strong id="documents-count">0</strong><span>Documents processed</span></div><div><strong id="chunks-count">0 / 0</strong><span>Text chunks processed</span></div><div><strong id="facts-count">0</strong><span>Quoted findings</span></div><div><strong id="elapsed">00:00:00</strong><span>Elapsed time</span></div></div>
+<details class="card activity" open><summary><span>Progress</span><span id="stage" class="hint"></span></summary><ol id="events"></ol></details>
+<div id="outputs" hidden>
+<p class="notice">Preliminary company understanding. Facts, management statements and inferences are labelled separately. Review the cited evidence before using these outputs in audit planning.</p>
+<section class="card deliverables"><div><h3>Your understanding package</h3><code id="output-folder"></code></div><div class="actions"><button id="open-folder" class="primary">Open output folder ↗</button><a id="report" class="secondary">Readable report ↓</a><a id="zip" class="secondary">Download package ↓</a><a id="json" class="text-button">Job JSON ↓</a></div></section>
+<nav class="tabs" aria-label="Understanding outputs"><button data-tab="profile" class="selected">Company profile</button><button data-tab="significant_changes">Significant changes</button><button data-tab="exposures">Exposures</button><button data-tab="open_questions">Open questions</button><button data-tab="question_coverage">Question coverage</button><button data-tab="evidence_comparisons">Evidence comparisons</button><button data-tab="claim_checks">Claim checks</button><button data-tab="coverage">Document coverage</button></nav>
+<div id="items"></div>
+<details id="issues-panel" class="card" hidden><summary id="issues-title">Items to review</summary><ul id="issues"></ul></details>
+</div></section>
+<section class="how" id="how"><div><span>01</span><h3>Read the evidence</h3><p>Process the collected reports and announcements with page-level references.</p></div><div><span>02</span><h3>Ask better questions</h3><p>Connect company facts to potential exposures and check the source text again.</p></div><div><span>03</span><h3>Keep modules independent</h3><p>Export structured files for a later research module or your own orchestrator.</p></div></section>
+<section class="history"><h3>Previous understanding jobs</h3><div id="history"></div></section>
+<footer>Module 2 · File-based inputs and outputs · No external macroeconomic research</footer>
+</main>
+<dialog id="settings"><form method="dialog"><h2>Module 2 settings</h2><p>This module has its own API configuration. A key entered here stays in memory for this browser session and is not saved in job files.</p><label for="key">OpenAI API key</label><input id="key" type="password" autocomplete="off" placeholder="sk-…"><p class="hint" id="key-state"></p><div class="actions"><button value="save" class="primary">Save for this session</button><button value="cancel" class="secondary">Cancel</button></div></form></dialog>
+</body></html>

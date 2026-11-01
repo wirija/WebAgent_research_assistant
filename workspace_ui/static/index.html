@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Company Research Workspace</title><link rel="stylesheet" href="workspace.css"><script defer src="workspace.js"></script></head>
+<body>
+<header class="workspace-header"><div class="brand">Company Research <span>Workspace</span></div><nav aria-label="Research modules"><button id="collection-tab" aria-pressed="true" aria-controls="collection-frame">01 · Collect documents</button><button id="understanding-tab" aria-pressed="false" aria-controls="understanding-frame">02 · Understand company</button><button id="external-tab" aria-pressed="false" aria-controls="external-frame">03 · External environment</button></nav><span class="local">Local workspace</span></header>
+<section id="handoff" hidden aria-label="Choose an input for the selected module"><div><strong id="handoff-title">Use a saved collection</strong><p id="handoff-help">Select a collection to fill the folder below, then enter your dates and start Module 2.</p></div><div class="controls"><label class="sr-only" for="collections">Saved input</label><select id="collections"><option value="">Loading collections…</option></select><button id="refresh">Refresh</button><button id="use-collection" disabled>Use output ↓</button></div><p id="handoff-status" role="status"></p></section>
+<iframe id="collection-frame" src="/collection/" title="Module 1: Collect company documents"></iframe>
+<iframe id="understanding-frame" src="/understanding/" title="Module 2: Understand the company" hidden></iframe>
+<iframe id="external-frame" src="/external/" title="Module 3: Research the external environment" hidden></iframe>
+</body></html>

@@ -1,0 +1,50 @@
+{
+  "contract_version": "1.0",
+  "module": "company_understanding",
+  "purpose": "Evidence-backed company understanding, without external macro research or audit conclusions",
+  "depends_on_services": [],
+  "input": {
+    "source_folder": "Absolute folder containing catalogue.json and its saved documents",
+    "financial_year_end": "YYYY-MM-DD",
+    "information_cutoff": "YYYY-MM-DD"
+  },
+  "configuration": {
+    "OPENAI_API_KEY": "Process environment or module-specific .env; never persisted in outputs",
+    "OPENAI_MODEL": "gpt-5-mini by default"
+  },
+  "interfaces": {
+    "cli": "python -m company_understanding run --source <folder> --financial-year-end <date> --cutoff <date> --output-dir <folder>",
+    "python": "company_understanding.engine.run_job",
+    "optional_http": "POST /api/jobs, GET /api/jobs/{id}"
+  },
+  "outputs": [
+    "job.json",
+    "company_profile.json",
+    "significant_changes.json",
+    "exposure_register.json",
+    "open_questions.json",
+    "report.html",
+    "evidence/chunks.jsonl"
+  ],
+  "statuses": [
+    "running",
+    "finished",
+    "partial",
+    "failed",
+    "cancelled",
+    "interrupted"
+  ],
+  "cli_exit_codes": {
+    "0": "finished",
+    "2": "partial",
+    "1": "failed_or_cancelled",
+    "64": "invalid_input_or_configuration"
+  },
+  "orchestration": "An external orchestrator chooses module sequence, inputs, output routing, retry policy and handling of partial results. This module never invokes other modules.",
+  "additional_outputs": [
+    "research_questions.json",
+    "question_coverage.json",
+    "evidence_comparisons.json",
+    "claim_checks.json"
+  ]
+}

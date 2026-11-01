@@ -1,0 +1,11 @@
+{
+  "contract_version":"1.0",
+  "module":"external_research",
+  "dependent_services":[],
+  "external_services":["OpenAI Responses API with web_search", "Public source websites"],
+  "input":{"source_folder":"Module 2 output folder with company_understanding version 1.0 job.json; status finished or partial; cited profile/exposures", "audit_period_start":"YYYY-MM-DD", "audit_period_end":"YYYY-MM-DD", "information_cutoff":"YYYY-MM-DD"},
+  "interfaces":["external_research.engine.run_job", "python -m external_research run", "Standalone GUI/API on port 8767", "Shared workspace /external/"],
+  "outputs":["job.json","input_company_understanding.json","topics.json","company_evidence.json","sources.json","observations.json","implications.json","conflicts.json","gaps.json","report.html","evidence/"],
+  "statuses":["running","finished","partial","failed","cancelled","interrupted"],
+  "orchestration":"External caller determines module order; this module never invokes another module."
+}

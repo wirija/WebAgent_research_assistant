@@ -1,0 +1,10 @@
+[
+  {"id":"location_exclusivity","claim":"The Group operates exclusively in Singapore.","quotes":["The Group operates restaurants in Singapore."],"expected":"needs_review","reason":"A mentioned location does not establish exclusive operations."},
+  {"id":"units","claim":"Group employee costs were SGD 1,200 million in 2025.","quotes":["Group employee costs. SGD thousands. 2025: 1,200; 2024: 900."],"expected":"needs_review","reason":"The number matches but the unit is wrong."},
+  {"id":"period","claim":"Group employee costs were SGD 900 thousand in 2025.","quotes":["Group employee costs. SGD thousands. 2025: 1,200; 2024: 900."],"expected":"needs_review","reason":"The value belongs to the previous year."},
+  {"id":"scope","claim":"The Group has no bank borrowings.","quotes":["The parent company has no bank borrowings."],"expected":"needs_review","reason":"Parent and Group scope differ."},
+  {"id":"conflict","claim":"The Group had three restaurants at 30 September 2025.","quotes":["The Group had three restaurants at 30 September 2025.","The Group had five restaurants at 30 September 2025."],"expected":"needs_review","reason":"Same-date, same-entity figures conflict."},
+  {"id":"temporal_change","claim":"The Group had three restaurants at 30 September 2024 and five at 30 September 2025.","quotes":["The Group had three restaurants at 30 September 2024.","The Group had five restaurants at 30 September 2025."],"expected":"supported","reason":"Different dates explain the different counts."},
+  {"id":"management_attribution","claim":"Demand will remain stable.","quotes":["Management expects demand to remain stable."],"expected":"needs_review","reason":"A management expectation is not an established future fact."},
+  {"id":"correct_units","claim":"Group employee costs were SGD 1,200 thousand in 2025.","quotes":["Group employee costs. SGD thousands. 2025: 1,200; 2024: 900."],"expected":"supported","reason":"The amount, unit, period and entity match."}
+]
